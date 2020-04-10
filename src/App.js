@@ -1,48 +1,25 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import React, { Component, Fragment } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Button from "./pages/Button";
+import Typography from "./pages/Typography";
+import NotFound from "./pages/NotFound";
 
-export default function App() {
-  return (
-    <div>
-      <h1>Styled-Components</h1>
+class App extends Component {
+  render() {
+    return (
       <Router>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/projeto1">Projeto1</Link>
-            </li>
-            <li>
-              <Link to="/projeto2">Projeto2</Link>
-            </li>
-          </ul>
-        </nav>
-        <Switch>
-          <Route path="/projeto1">
-            <Projeto1 />
-          </Route>
-          <Route path="/projeto2">
-            <Projeto2 />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
+        <Fragment>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/button" render={() => <Button />} />
+            <Route exact path="/typography" render={() => <Typography />} />
+            <Route component={NotFound} />
+          </Switch>
+        </Fragment>
       </Router>
-    </div>
-  );
+    );
+  }
 }
 
-function Home() {
-  return <h2>Home</h2>;
-}
-
-function Projeto1() {
-  return <h2>Projeto1</h2>;
-}
-
-function Projeto2() {
-  return <h2>Projeto2</h2>;
-}
+export default App;
