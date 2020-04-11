@@ -42,4 +42,14 @@ const TypographyContent = () => {
   );
 };
 
-export { HomeContent, ButtonContent, TypographyContent };
+const CodeContent = () => {
+  return (
+    <main>
+      <h1>Code</h1>
+      <p>Lorem ipsum</p>
+      <p>Lorem ipsum</p>
+    </main>
+  );
+};
+
+export { HomeContent, ButtonContent, TypographyContent, CodeContent };
